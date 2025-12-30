@@ -2,36 +2,33 @@
 
 import { GlassCard } from "@/components/ui/glass-card"
 import { motion } from "framer-motion"
-import Image from "next/image"
-import { Clock, Zap, Users, ArrowRight } from 'lucide-react'
+import { Clock, Zap, Users } from 'lucide-react'
 
-export function Work() {
+export function FlagshipProof() {
   return (
-    <section id="work" className="py-32 relative overflow-hidden">
+    <section id="proof" className="py-32 relative overflow-hidden">
       {/* Background Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#1A1730]/10 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-          <div>
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-4xl md:text-6xl font-bold mb-6"
-            >
-              Featured Work
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="text-xl text-white/60 max-w-md"
-            >
-              Real results for real clients. See how we transform ideas into reality.
-            </motion.p>
-          </div>
+        <div className="max-w-3xl mb-16">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-6xl font-bold mb-6"
+          >
+            Built for landmark-scale projects
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-xl text-white/60 max-w-2xl"
+          >
+            We built the complete AI-powered visualization platform for Eedu Apartments — Estonia's tallest residential skyscraper. Scale, precision, and real estate credibility.
+          </motion.p>
         </div>
 
         {/* Eedu Apartments Case Study */}
@@ -52,8 +49,8 @@ export function Work() {
                   <h3 className="text-4xl md:text-5xl font-bold mb-6 group-hover:translate-x-2 transition-transform duration-500">
                     Eedu Apartments
                   </h3>
-                  <p className="text-white/70 mb-8 max-w-md">
-                    AI-powered apartment visualization platform featuring interactive 3D floor plans, custom interior design with style packages, and immersive property exploration.
+                  <p className="text-white/70 mb-8 max-w-md leading-relaxed">
+                    AI-powered apartment visualization platform featuring interactive 3D floor plans, custom interior design with style packages, and immersive property exploration for Estonia's tallest residential building.
                   </p>
 
                   {/* Results */}
@@ -75,7 +72,7 @@ export function Work() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-4 text-sm font-medium">
+                  <div className="flex items-center gap-4 text-sm font-medium flex-wrap">
                     <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">3D Visualization</span>
                     <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">Next.js</span>
                     <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">AI Integration</span>
@@ -99,47 +96,6 @@ export function Work() {
             </div>
           </GlassCard>
         </motion.div>
-
-        {/* Why Choose Us Section */}
-        <div id="about" className="mt-32">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6"
-          >
-            Why Choose Us
-          </motion.h2>
-          <motion.div
-            initial={{ opacity: 0, width: 0 }}
-            whileInView={{ opacity: 1, width: "100px" }}
-            viewport={{ once: true }}
-            className="h-1 bg-gradient-to-r from-[#6B5CFF] to-[#8B7FFF] rounded-full mb-12"
-          />
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { title: "Fast Execution", desc: "Days instead of weeks", icon: "⚡" },
-              { title: "Cost Effective", desc: "50-70% less than agencies", icon: "💰" },
-              { title: "AI-Powered", desc: "Latest technology", icon: "🤖" },
-              { title: "Full Service", desc: "Concept to delivery", icon: "🎯" },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <GlassCard className="text-center py-8">
-                  <span className="text-4xl mb-4 block">{item.icon}</span>
-                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                  <p className="text-white/60">{item.desc}</p>
-                </GlassCard>
-              </motion.div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   )

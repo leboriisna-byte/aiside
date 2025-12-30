@@ -2,28 +2,32 @@
 
 import { GlassCard } from "@/components/ui/glass-card"
 import { motion } from "framer-motion"
-import { Box, Code2, Bot, Sparkles } from 'lucide-react'
+import { Phone, Building2, Globe, Database } from 'lucide-react'
 
 const services = [
   {
-    icon: <Box className="w-8 h-8 text-[#6B5CFF]" />,
-    title: "3D Visualization & Rendering",
-    description: "AI-powered architectural renders and interior design for real estate. Bring properties to life before they're built.",
+    icon: <Phone className="w-8 h-8 text-[#6B5CFF]" />,
+    title: "Voice Agents",
+    description: "AI voice assistants that answer calls, qualify leads, book viewings, and follow up automatically.",
+    outcome: "More qualified leads, 24/7 availability"
   },
   {
-    icon: <Code2 className="w-8 h-8 text-[#6B5CFF]" />,
-    title: "Custom Web Development",
-    description: "Modern, fast websites built with Next.js and AI integration. Designed to convert visitors into customers.",
+    icon: <Building2 className="w-8 h-8 text-[#6B5CFF]" />,
+    title: "AI Property Visualization",
+    description: "Interactive 3D floor plans, style-based interior design packages, and immersive apartment exploration.",
+    outcome: "Faster buyer decisions, higher engagement"
   },
   {
-    icon: <Bot className="w-8 h-8 text-[#6B5CFF]" />,
-    title: "AI Agents & Automation",
-    description: "Custom AI solutions to streamline your business operations. Save time and reduce costs with intelligent automation.",
+    icon: <Globe className="w-8 h-8 text-[#6B5CFF]" />,
+    title: "Smart Websites",
+    description: "High-conversion websites integrated with AI agents, lead capture, and automation.",
+    outcome: "More conversions, automated follow-ups"
   },
   {
-    icon: <Sparkles className="w-8 h-8 text-[#8B7FFF]" />,
-    title: "Content Creation",
-    description: "AI-generated visuals, videos, and marketing materials. High-quality content at a fraction of the traditional cost.",
+    icon: <Database className="w-8 h-8 text-[#6B5CFF]" />,
+    title: "Data Scrapers & Automation",
+    description: "Custom scrapers and pipelines that turn raw data into business leverage.",
+    outcome: "Competitive intelligence, automated workflows"
   },
 ]
 
@@ -31,14 +35,14 @@ export function Services() {
   return (
     <section id="services" className="py-32 relative">
       <div className="container mx-auto px-6">
-        <div className="mb-20">
+        <div className="max-w-3xl mb-16">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-6xl font-bold mb-6"
           >
-            Our Services
+            What We Build
           </motion.h2>
           <motion.div
             initial={{ opacity: 0, width: 0 }}
@@ -54,19 +58,19 @@ export function Services() {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ delay: index * 0.1 }}
             >
-              <GlassCard className="h-full flex flex-col justify-between group">
+              <GlassCard className="h-full flex flex-col justify-between group hover:border-[#6B5CFF]/30 transition-all duration-300">
                 <div>
                   <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit group-hover:bg-[#6B5CFF]/10 transition-colors">
                     {service.icon}
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
-                  <p className="text-white/60 leading-relaxed">{service.description}</p>
-                </div>
-                <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/40 group-hover:text-[#6B5CFF] transition-colors">
-                  Learn more <div className="w-4 h-[1px] bg-current transition-all group-hover:w-8" />
+                  <p className="text-white/70 mb-4 leading-relaxed">{service.description}</p>
+                  <p className="text-sm text-[#6B5CFF] font-medium">
+                    → {service.outcome}
+                  </p>
                 </div>
               </GlassCard>
             </motion.div>

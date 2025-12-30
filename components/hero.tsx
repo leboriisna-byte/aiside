@@ -6,20 +6,13 @@ import Link from "next/link"
 import { useState } from "react"
 
 export function Hero() {
-  const [selectedSystem, setSelectedSystem] = useState<string>('voice')
-
-  const systemContent: Record<string, string> = {
-    voice: "Answer calls and qualify leads automatically.",
-    web: "Convert visitors without adding friction.",
-    data: "Turn raw data into decisions.",
-    agents: "Let systems operate without supervision."
-  }
+  const [selectedSystem, setSelectedSystem] = useState<string>('renders')
 
   const systems = [
-    { id: 'voice', label: 'Voice' },
+    { id: 'renders', label: 'Renders' },
     { id: 'web', label: 'Web' },
-    { id: 'data', label: 'Data' },
-    { id: 'agents', label: 'Agents' }
+    { id: 'automation', label: 'Automation' },
+    { id: 'content', label: 'Content' }
   ]
 
   return (
@@ -62,7 +55,7 @@ export function Hero() {
           </h1>
         </motion.div>
 
-        {/* Interactive System Options */}
+        {/* Interactive Mode Selector */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,26 +91,26 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="max-w-4xl mx-auto mb-8"
+          className="max-w-4xl mx-auto mb-16"
         >
           <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
-            {/* Voice Placeholder */}
+            {/* Renders Proof Placeholder */}
             <motion.div
-              key="voice-proof"
+              key="renders-proof"
               initial={{ opacity: 0 }}
-              animate={{ opacity: selectedSystem === 'voice' ? 1 : 0 }}
+              animate={{ opacity: selectedSystem === 'renders' ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'voice' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'renders' ? 'pointer-events-auto' : 'pointer-events-none'}`}
             >
               <div className="text-center space-y-4">
-                <div className="w-16 h-16 mx-auto rounded-full border-2 border-white/20 flex items-center justify-center">
-                  <div className="w-8 h-8 rounded-full bg-white/10" />
+                <div className="w-24 h-24 mx-auto rounded-xl border-2 border-white/20 flex items-center justify-center rotate-12">
+                  <div className="w-16 h-16 rounded-lg bg-white/10" />
                 </div>
-                <p className="text-white/40 text-sm font-medium">Voice system preview</p>
+                <p className="text-white/40 text-sm font-medium">3D render / Interactive visualization</p>
               </div>
             </motion.div>
 
-            {/* Web Placeholder */}
+            {/* Web Proof Placeholder */}
             <motion.div
               key="web-proof"
               initial={{ opacity: 0 }}
@@ -126,63 +119,55 @@ export function Hero() {
               className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'web' ? 'pointer-events-auto' : 'pointer-events-none'}`}
             >
               <div className="text-center space-y-4">
-                <div className="w-24 h-16 mx-auto rounded border-2 border-white/20 flex items-center justify-center">
-                  <div className="w-16 h-10 rounded-sm bg-white/10" />
-                </div>
-                <p className="text-white/40 text-sm font-medium">Web system preview</p>
-              </div>
-            </motion.div>
-
-            {/* Data Placeholder */}
-            <motion.div
-              key="data-proof"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: selectedSystem === 'data' ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'data' ? 'pointer-events-auto' : 'pointer-events-none'}`}
-            >
-              <div className="text-center space-y-4">
-                <div className="mx-auto space-y-2">
-                  <div className="flex gap-2 justify-center">
-                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
-                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
-                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
+                <div className="w-32 h-20 mx-auto rounded border-2 border-white/20 flex flex-col gap-2 p-2">
+                  <div className="w-full h-2 rounded-sm bg-white/20" />
+                  <div className="grid grid-cols-3 gap-1">
+                    <div className="h-8 rounded-sm bg-white/10" />
+                    <div className="h-8 rounded-sm bg-white/10" />
+                    <div className="h-8 rounded-sm bg-white/10" />
                   </div>
                 </div>
-                <p className="text-white/40 text-sm font-medium">Data system preview</p>
+                <p className="text-white/40 text-sm font-medium">Website / UI Snapshot</p>
               </div>
             </motion.div>
 
-            {/* Agents Placeholder */}
+            {/* Automation Proof Placeholder */}
             <motion.div
-              key="agents-proof"
+              key="automation-proof"
               initial={{ opacity: 0 }}
-              animate={{ opacity: selectedSystem === 'agents' ? 1 : 0 }}
+              animate={{ opacity: selectedSystem === 'automation' ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'agents' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'automation' ? 'pointer-events-auto' : 'pointer-events-none'}`}
             >
               <div className="text-center space-y-4">
-                <div className="mx-auto flex items-center gap-2">
-                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
-                  <div className="w-8 h-[2px] bg-white/20" />
-                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
-                  <div className="w-8 h-[2px] bg-white/20" />
-                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
+                <div className="w-32 h-32 mx-auto space-y-2 font-mono text-[10px] text-left p-4 border border-white/20 rounded bg-black/20">
+                  <div className="text-[#6B5CFF]">$ workflow.execute()</div>
+                  <div className="text-white/60">→ validate input</div>
+                  <div className="text-white/60">→ match pattern</div>
+                  <div className="text-[#6B5CFF]">ok.</div>
                 </div>
-                <p className="text-white/40 text-sm font-medium">Agents system preview</p>
+                <p className="text-white/40 text-sm font-medium">Workflow execution / System log</p>
+              </div>
+            </motion.div>
+
+            {/* Content Proof Placeholder */}
+            <motion.div
+              key="content-proof"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: selectedSystem === 'content' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'content' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+            >
+              <div className="text-center space-y-4">
+                <div className="w-24 h-32 mx-auto rounded border-2 border-white/20 p-3 italic text-white/20 select-none">
+                  <div className="h-2 w-full bg-white/10 mb-2" />
+                  <div className="h-2 w-4/5 bg-white/10 mb-2" />
+                  <div className="h-2 w-full bg-white/10 mb-2" />
+                </div>
+                <p className="text-white/40 text-sm font-medium">Generated content / Structured output</p>
               </div>
             </motion.div>
           </div>
-        </motion.div>
-
-        {/* Context Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          className="mb-12"
-        >
-          <p className="text-white/40 text-sm font-medium">→ See this system in action</p>
         </motion.div>
 
         {/* CTAs */}
@@ -236,6 +221,6 @@ export function Hero() {
           }}
         />
       </motion.div>
-    </section >
+    </section>
   )
 }

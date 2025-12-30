@@ -4,6 +4,8 @@ import { motion } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
 import Link from "next/link"
 import { useState } from "react"
+import { AutomationDashboard } from "@/components/automation-dashboard"
+import { LaptopShowcase } from "@/components/laptop-showcase"
 
 export function Hero() {
   const [selectedSystem, setSelectedSystem] = useState<string>('renders')
@@ -178,44 +180,17 @@ export function Hero() {
             </motion.div>
 
             {/* Web Proof Placeholder */}
-            <motion.div
-              key="web-proof"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: selectedSystem === 'web' ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'web' ? 'pointer-events-auto' : 'pointer-events-none'}`}
-            >
-              <div className="text-center space-y-4">
-                <div className="w-32 h-20 mx-auto rounded border-2 border-white/20 flex flex-col gap-2 p-2">
-                  <div className="w-full h-2 rounded-sm bg-white/20" />
-                  <div className="grid grid-cols-3 gap-1">
-                    <div className="h-8 rounded-sm bg-white/10" />
-                    <div className="h-8 rounded-sm bg-white/10" />
-                    <div className="h-8 rounded-sm bg-white/10" />
-                  </div>
-                </div>
-                <p className="text-white/40 text-sm font-medium">Website / UI Snapshot</p>
-              </div>
-            </motion.div>
+            {/* Web Proof Placeholder */}
+            {/* Laptop Showcase */}
+            <div className={`absolute inset-0 p-4 transition-opacity duration-300 ${selectedSystem === 'web' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+              <LaptopShowcase />
+            </div>
 
             {/* Automation Proof Placeholder */}
-            <motion.div
-              key="automation-proof"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: selectedSystem === 'automation' ? 1 : 0 }}
-              transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'automation' ? 'pointer-events-auto' : 'pointer-events-none'}`}
-            >
-              <div className="text-center space-y-4">
-                <div className="w-32 h-32 mx-auto space-y-2 font-mono text-[10px] text-left p-4 border border-white/20 rounded bg-black/20">
-                  <div className="text-[#6B5CFF]">$ workflow.execute()</div>
-                  <div className="text-white/60">→ validate input</div>
-                  <div className="text-white/60">→ match pattern</div>
-                  <div className="text-[#6B5CFF]">ok.</div>
-                </div>
-                <p className="text-white/40 text-sm font-medium">Workflow execution / System log</p>
-              </div>
-            </motion.div>
+            {/* Automation Dashboard */}
+            <div className={`absolute inset-0 p-4 md:p-8 transition-opacity duration-300 ${selectedSystem === 'automation' ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}>
+              <AutomationDashboard />
+            </div>
 
             {/* Content Proof Placeholder */}
             <motion.div

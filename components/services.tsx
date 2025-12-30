@@ -16,7 +16,7 @@ const services = [
     description: "Modern, fast websites built with Next.js and AI integration. Designed to convert visitors into customers.",
   },
   {
-    icon: <Bot className="w-8 h-8 text-amber-500" />,
+    icon: <Bot className="w-8 h-8 text-[#6B5CFF]" />,
     title: "AI Agents & Automation",
     description: "Custom AI solutions to streamline your business operations. Save time and reduce costs with intelligent automation.",
   },

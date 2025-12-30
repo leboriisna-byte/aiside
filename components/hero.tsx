@@ -58,7 +58,7 @@ export function Hero() {
           className="mb-16"
         >
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white/90 leading-[1.15] max-w-4xl mx-auto">
-            What should your AI handle for you?
+            What can <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] to-[#8B7FFF]">AISIDE</span> handle for you?
           </h1>
         </motion.div>
 

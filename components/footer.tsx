@@ -31,10 +31,10 @@ export function Footer() {
             <h4 className="font-semibold mb-4">Get in Touch</h4>
             <p className="text-white/60 mb-4">Ready to start your project?</p>
             <a
-              href="mailto:hello@aiside.ee"
+              href="mailto:contact@aiside.ee"
               className="text-xl font-medium hover:text-[#6B5CFF] transition-colors"
             >
-              hello@aiside.ee
+              contact@aiside.ee
             </a>
           </div>
         </div>

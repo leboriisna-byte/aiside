@@ -7,6 +7,7 @@ import { useState } from "react"
 
 export function Hero() {
   const [selectedSystem, setSelectedSystem] = useState<string>('renders')
+  const [renderStep, setRenderStep] = useState<'front' | 'animation' | 'backwards'>('front')
 
   const systems = [
     { id: 'renders', label: 'Renders' },
@@ -86,27 +87,93 @@ export function Hero() {
           ))}
         </motion.div>
 
-        {/* Proof Surface */}
+        {/* Proof Surface Container with Dynamic Sizing */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
-          className="max-w-4xl mx-auto mb-16"
+          animate={{
+            maxWidth: selectedSystem === 'renders' ? '700px' : '896px',
+          }}
+          transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+          className="mx-auto mb-16 relative w-full"
         >
-          <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
-            {/* Renders Proof Placeholder */}
+          <motion.div
+            animate={{
+              height: selectedSystem === 'renders' ? '350px' : '500px',
+            }}
+            transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
+            className="relative w-full rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden"
+          >
+            {/* Renders Proof Sequential Surface */}
             <motion.div
               key="renders-proof"
               initial={{ opacity: 0 }}
               animate={{ opacity: selectedSystem === 'renders' ? 1 : 0 }}
               transition={{ duration: 0.3 }}
-              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'renders' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+              onMouseLeave={() => selectedSystem === 'renders' && setRenderStep('front')}
+              className={`absolute inset-0 flex items-center justify-center overflow-hidden ${selectedSystem === 'renders' ? 'pointer-events-auto' : 'pointer-events-none'}`}
             >
-              <div className="text-center space-y-4">
-                <div className="w-24 h-24 mx-auto rounded-xl border-2 border-white/20 flex items-center justify-center rotate-12">
-                  <div className="w-16 h-16 rounded-lg bg-white/10" />
+              <div className="relative w-full h-full flex items-center justify-center">
+                {/* Contained Media Wrapper - Tight Fit with cinematic filters */}
+                <div className="relative w-full h-full bg-black overflow-hidden flex items-center justify-center">
+                  {renderStep === 'front' && (
+                    <motion.img
+                      key="front-img"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0.9 }}
+                      exit={{ opacity: 0 }}
+                      src="/front.jpeg"
+                      alt="System Start"
+                      className="w-full h-full object-cover grayscale-[0.05] brightness-[0.8] contrast-[1.1]"
+                    />
+                  )}
+                  {renderStep === 'animation' && (
+                    <motion.video
+                      key="animation-video"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0.9 }}
+                      exit={{ opacity: 0 }}
+                      src="/animation.mp4"
+                      autoPlay
+                      muted
+                      playsInline
+                      onEnded={() => setRenderStep('backwards')}
+                      className="w-full h-full object-cover brightness-[0.9] contrast-[1.1]"
+                    />
+                  )}
+                  {renderStep === 'backwards' && (
+                    <motion.img
+                      key="backwards-img"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 0.9 }}
+                      exit={{ opacity: 0 }}
+                      src="/backwards.jpeg"
+                      alt="System Result"
+                      className="w-full h-full object-cover brightness-[0.8] contrast-[1.1]"
+                    />
+                  )}
+
+                  {/* Cinematic Vignette Overlay - Toned Down */}
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black/30 via-transparent to-black/30" />
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/20 via-transparent to-black/20" />
                 </div>
-                <p className="text-white/40 text-sm font-medium">3D render / Interactive visualization</p>
+
+                {/* Absolute Button Layer */}
+                {renderStep === 'front' && selectedSystem === 'renders' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="absolute top-10 left-1/2 -translate-x-1/2 z-20"
+                  >
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setRenderStep('animation');
+                      }}
+                      className="px-4 py-1.5 bg-black/80 hover:bg-black text-white/70 hover:text-white rounded-full text-[9px] tracking-[0.25em] uppercase transition-all duration-300 hover:scale-105 active:scale-95 border border-white/[0.05] shadow-[0_0_20px_-5px_rgba(107,92,255,0.6)] backdrop-blur-md"
+                    >
+                      back view
+                    </button>
+                  </motion.div>
+                )}
               </div>
             </motion.div>
 
@@ -167,7 +234,7 @@ export function Hero() {
                 <p className="text-white/40 text-sm font-medium">Generated content / Structured output</p>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </motion.div>
 
         {/* CTAs */}

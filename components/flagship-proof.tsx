@@ -1,101 +1,111 @@
 "use client"
 
-import { GlassCard } from "@/components/ui/glass-card"
 import { motion } from "framer-motion"
-import { Clock, Zap, Users } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
+import Link from "next/link"
 
 export function FlagshipProof() {
   return (
-    <section id="proof" className="py-32 relative overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[#1A1730]/10 rounded-full blur-[150px] pointer-events-none" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-3xl mb-16">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+    <section id="proof" className="py-24 md:py-32 relative">
+      <div className="container mx-auto px-6">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* LEFT COLUMN - Narrative + Proof */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-6xl font-bold mb-6"
+            transition={{ duration: 0.6 }}
+            className="space-y-8"
           >
-            Built for landmark-scale projects
-          </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-xl text-white/60 max-w-2xl"
-          >
-            We built the complete AI-powered visualization platform for Eedu Apartments — Estonia's tallest residential skyscraper. Scale, precision, and real estate credibility.
-          </motion.p>
-        </div>
 
-        {/* Eedu Apartments Case Study */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <GlassCard className="p-0 overflow-hidden group">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="p-12 flex flex-col justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#6B5CFF]/20 to-[#8B7FFF]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                <div className="relative z-10">
-                  <span className="text-sm font-medium text-[#6B5CFF] mb-4 block uppercase tracking-wider">
-                    Luxury Real Estate Visualization
-                  </span>
-                  <h3 className="text-4xl md:text-5xl font-bold mb-6 group-hover:translate-x-2 transition-transform duration-500">
-                    Eedu Apartments
-                  </h3>
-                  <p className="text-white/70 mb-8 max-w-md leading-relaxed">
-                    AI-powered apartment visualization platform featuring interactive 3D floor plans, custom interior design with style packages, and immersive property exploration for Estonia's tallest residential building.
-                  </p>
+            {/* Headline */}
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+              Built for real-world scale
+            </h2>
 
-                  {/* Results */}
-                  <div className="grid grid-cols-3 gap-4 mb-8">
-                    <div className="text-center p-4 rounded-xl bg-white/5">
-                      <Clock className="w-5 h-5 text-[#6B5CFF] mx-auto mb-2" />
-                      <p className="text-2xl font-bold">2 weeks</p>
-                      <p className="text-xs text-white/50">Delivery time</p>
-                    </div>
-                    <div className="text-center p-4 rounded-xl bg-white/5">
-                      <Zap className="w-5 h-5 text-[#6B5CFF] mx-auto mb-2" />
-                      <p className="text-2xl font-bold">AI</p>
-                      <p className="text-xs text-white/50">Interior design</p>
-                    </div>
-                    <div className="text-center p-4 rounded-xl bg-white/5">
-                      <Users className="w-5 h-5 text-[#6B5CFF] mx-auto mb-2" />
-                      <p className="text-2xl font-bold">100%</p>
-                      <p className="text-xs text-white/50">Client satisfied</p>
-                    </div>
-                  </div>
+            {/* Narrative Paragraph */}
+            <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+              Complete AI visualization platform for Eedu Apartments—Estonia's tallest residential building.
+              Interactive 3D floor plans, custom interior design systems, and immersive property exploration
+              deployed for live sales operations.
+            </p>
 
-                  <div className="flex items-center gap-4 text-sm font-medium flex-wrap">
-                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">3D Visualization</span>
-                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">Next.js</span>
-                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10">AI Integration</span>
-                  </div>
-                </div>
+            {/* Proof Metrics */}
+            <div className="grid grid-cols-3 gap-6 py-6 border-y border-white/10">
+              <div>
+                <div className="text-2xl font-bold text-white mb-1">2 weeks</div>
+                <div className="text-sm text-white/50">Delivered</div>
               </div>
-              <div className="relative h-[400px] md:h-auto min-h-[500px] overflow-hidden bg-gradient-to-br from-[#2F2A4A]/20 to-[#6B5CFF]/20 rounded-r-2xl">
-                {/* Video Section */}
+              <div>
+                <div className="text-2xl font-bold text-white mb-1">Custom AI</div>
+                <div className="text-sm text-white/50">Visualization</div>
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-white mb-1">Live</div>
+                <div className="text-sm text-white/50">Production use</div>
+              </div>
+            </div>
+
+            {/* Tech Chips */}
+            <div className="flex flex-wrap gap-3">
+              <span className="text-xs text-white/50 font-medium">3D Visualization</span>
+              <span className="text-white/20">·</span>
+              <span className="text-xs text-white/50 font-medium">Next.js</span>
+              <span className="text-white/20">·</span>
+              <span className="text-xs text-white/50 font-medium">AI Integration</span>
+              <span className="text-white/20">·</span>
+              <span className="text-xs text-white/50 font-medium">Custom Systems</span>
+            </div>
+
+            {/* Soft CTA */}
+            <div className="pt-4">
+              <Link
+                href="#lead-capture"
+                className="group inline-flex items-center gap-2 text-[#6B5CFF] hover:text-[#8B7FFF] transition-colors"
+              >
+                <span className="text-sm font-medium">See how we'd approach your project</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* RIGHT COLUMN - Immersive Visual */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+              {/* Video Container */}
+              <div className="relative bg-gradient-to-br from-[#2F2A4A]/20 to-[#6B5CFF]/10">
                 <video
                   autoPlay
                   loop
                   muted
                   playsInline
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-auto"
                 >
                   <source src="/HEROVIDEO copy.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
                 </video>
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
+
+                {/* Dark overlay for contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
+                {/* Live System Label */}
+                <div className="absolute top-4 right-4">
+                  <div className="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1.5 h-1.5 rounded-full bg-[#6B5CFF] animate-pulse" />
+                      <span className="text-xs font-medium text-white/90">Live system preview</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </GlassCard>
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

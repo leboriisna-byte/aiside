@@ -5,7 +5,7 @@ import { ArrowLeft, MapPin, Users, Code } from 'lucide-react'
 
 export default function AboutPage() {
     return (
-        <main className="min-h-screen bg-black text-white selection:bg-orange-500/30">
+        <main className="min-h-screen bg-black text-white selection:bg-[#6B5CFF]/30">
             <Navbar />
 
             {/* Hero */}
@@ -19,7 +19,7 @@ export default function AboutPage() {
                         Back to Home
                     </Link>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                        About <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-500">AISIDE</span>
+                        About <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] via-[#8B7FFF] to-[#A89FFF]">AISIDE</span>
                     </h1>
                     <p className="text-xl text-white/60 max-w-2xl">
                         Building the future with AI
@@ -42,7 +42,7 @@ export default function AboutPage() {
                     <div className="grid md:grid-cols-3 gap-6">
                         {/* Who We Are */}
                         <div className="glass rounded-2xl p-6">
-                            <h2 className="text-lg font-bold mb-3 text-orange-400">Who We Are</h2>
+                            <h2 className="text-lg font-bold mb-3 text-[#6B5CFF]">Who We Are</h2>
                             <p className="text-white/70 text-sm leading-relaxed">
                                 AISIDE is a boutique AI studio specializing in custom visualizations, web development, and intelligent automation. We stay ahead of the AI curve, constantly exploring and implementing the latest tools to deliver exceptional results for our clients.
                             </p>
@@ -50,7 +50,7 @@ export default function AboutPage() {
 
                         {/* What We Do */}
                         <div className="glass rounded-2xl p-6">
-                            <h2 className="text-lg font-bold mb-3 text-orange-400">What We Do</h2>
+                            <h2 className="text-lg font-bold mb-3 text-[#6B5CFF]">What We Do</h2>
                             <p className="text-white/70 text-sm leading-relaxed">
                                 We build AI-powered solutions for real estate, e-commerce, hospitality, and more. 3D visualizations, custom web applications, automation tools. We handle everything from concept to deployment with direct execution and no overhead.
                             </p>
@@ -58,7 +58,7 @@ export default function AboutPage() {
 
                         {/* How We Work */}
                         <div className="glass rounded-2xl p-6">
-                            <h2 className="text-lg font-bold mb-3 text-orange-400">How We Work</h2>
+                            <h2 className="text-lg font-bold mb-3 text-[#6B5CFF]">How We Work</h2>
                             <p className="text-white/70 text-sm leading-relaxed">
                                 Fast iteration, direct communication, transparent pricing. We understand your vision, then leverage cutting-edge AI tools and modern development practices to bring it to life. Results in days, not weeks.
                             </p>
@@ -72,15 +72,15 @@ export default function AboutPage() {
                 <div className="container mx-auto px-6">
                     <div className="grid md:grid-cols-3 gap-6">
                         <div className="flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                            <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                            <MapPin className="w-5 h-5 text-[#6B5CFF] flex-shrink-0" />
                             <span className="text-white/80 text-sm">Based in Tallinn, Estonia</span>
                         </div>
                         <div className="flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                            <Users className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                            <Users className="w-5 h-5 text-[#6B5CFF] flex-shrink-0" />
                             <span className="text-white/80 text-sm">Small team, full-stack capabilities</span>
                         </div>
                         <div className="flex items-center gap-4 p-5 rounded-xl bg-white/5 border border-white/10">
-                            <Code className="w-5 h-5 text-orange-400 flex-shrink-0" />
+                            <Code className="w-5 h-5 text-[#6B5CFF] flex-shrink-0" />
                             <span className="text-white/80 text-sm">Next.js, React, AI, 3D visualization</span>
                         </div>
                     </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                     </h2>
                     <Link
                         href="/#contact"
-                        className="inline-block px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all"
+                        className="inline-block px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-[#6B5CFF] hover:text-white transition-all"
                     >
                         Book a Call
                     </Link>

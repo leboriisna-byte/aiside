@@ -5,7 +5,7 @@ import { ArrowLeft, Clock, Zap, Users, ExternalLink, Sparkles, Code, Bot } from 
 
 export default function WorkPage() {
     return (
-        <main className="min-h-screen bg-black text-white selection:bg-orange-500/30">
+        <main className="min-h-screen bg-black text-white selection:bg-[#6B5CFF]/30">
             <Navbar />
 
             {/* Hero */}
@@ -19,7 +19,7 @@ export default function WorkPage() {
                         Back to Home
                     </Link>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6">
-                        Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-amber-500">Work</span>
+                        Our <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] to-[#8B7FFF]">Work</span>
                     </h1>
                     <p className="text-xl text-white/60 max-w-2xl">
                         Real projects, real results. See how we transform ideas into reality with AI-powered solutions.
@@ -30,55 +30,88 @@ export default function WorkPage() {
             {/* Featured: Eedu Apartments */}
             <section className="py-16">
                 <div className="container mx-auto px-6">
-                    <div className="mb-8">
-                        <span className="text-sm font-medium text-orange-400 uppercase tracking-wider">Featured Project</span>
-                    </div>
+                    <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        {/* LEFT COLUMN - Narrative + Proof */}
+                        <div className="space-y-8">
+                            {/* Headline */}
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+                                Built for real-world scale
+                            </h2>
 
-                    <div className="glass rounded-3xl overflow-hidden">
-                        <div className="grid lg:grid-cols-2 gap-0">
-                            {/* Video */}
-                            <div className="relative h-[400px] lg:h-[600px] overflow-hidden">
-                                <video
-                                    autoPlay
-                                    muted
-                                    loop
-                                    playsInline
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                >
-                                    <source src="/herovideo.enhanced.mp4" type="video/mp4" />
-                                </video>
-                                <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent lg:hidden" />
+                            {/* Narrative Paragraph */}
+                            <p className="text-lg text-white/70 leading-relaxed max-w-xl">
+                                Complete AI visualization platform for Eedu Apartments—Estonia's tallest residential building.
+                                Interactive 3D floor plans, custom interior design systems, and immersive property exploration
+                                deployed for live sales operations.
+                            </p>
+
+                            {/* Proof Metrics */}
+                            <div className="grid grid-cols-3 gap-6 py-6 border-y border-white/10">
+                                <div>
+                                    <div className="text-2xl font-bold text-white mb-1">2 weeks</div>
+                                    <div className="text-sm text-white/50">Delivered</div>
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-white mb-1">Custom AI</div>
+                                    <div className="text-sm text-white/50">Visualization</div>
+                                </div>
+                                <div>
+                                    <div className="text-2xl font-bold text-white mb-1">Live</div>
+                                    <div className="text-sm text-white/50">Production use</div>
+                                </div>
                             </div>
 
-                            {/* Content */}
-                            <div className="p-8 lg:p-12 flex flex-col justify-center">
-                                <span className="text-sm font-medium text-orange-400 mb-4 block uppercase tracking-wider">
-                                    Luxury Real Estate Website
-                                </span>
-                                <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-                                    Eedu Apartments
-                                </h2>
-                                <p className="text-white/70 mb-8 text-lg leading-relaxed">
-                                    AI-powered apartment visualization platform featuring interactive 3D floor plans,
-                                    custom interior design with multiple style packages, and immersive property exploration
-                                    for a luxury high-rise development in Tallinn, Estonia.
-                                </p>
+                            {/* Tech Chips */}
+                            <div className="flex flex-wrap gap-3">
+                                <span className="text-xs text-white/50 font-medium">3D Visualization</span>
+                                <span className="text-white/20">·</span>
+                                <span className="text-xs text-white/50 font-medium">Next.js</span>
+                                <span className="text-white/20">·</span>
+                                <span className="text-xs text-white/50 font-medium">AI Integration</span>
+                                <span className="text-white/20">·</span>
+                                <span className="text-xs text-white/50 font-medium">Custom Systems</span>
+                            </div>
 
-
-                                <div className="flex flex-wrap gap-3 mb-8">
-                                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">Next.js</span>
-                                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">3D Visualization</span>
-                                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">AI Integration</span>
-                                    <span className="px-4 py-2 rounded-full bg-white/5 border border-white/10 text-sm">Interactive UI</span>
-                                </div>
-
+                            {/* View Live Project Button */}
+                            <div className="pt-4">
                                 <a
                                     href="https://eedu-three.vercel.app/"
                                     target="_blank"
-                                    className="inline-flex items-center gap-2 px-6 py-3 bg-orange-500 text-white rounded-full font-semibold hover:bg-orange-600 transition-colors w-fit"
+                                    className="inline-flex items-center gap-2 px-6 py-3 bg-[#6B5CFF] text-white rounded-full font-semibold hover:bg-[#7B6CFF] transition-colors"
                                 >
                                     View Live Project <ExternalLink className="w-4 h-4" />
                                 </a>
+                            </div>
+                        </div>
+
+                        {/* RIGHT COLUMN - Immersive Visual */}
+                        <div className="relative">
+                            <div className="relative rounded-2xl overflow-hidden shadow-[0_20px_60px_-15px_rgba(0,0,0,0.5)]">
+                                {/* Video Container */}
+                                <div className="relative bg-gradient-to-br from-[#2F2A4A]/20 to-[#6B5CFF]/10">
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-auto"
+                                    >
+                                        <source src="/HEROVIDEO copy.mp4" type="video/mp4" />
+                                    </video>
+
+                                    {/* Dark overlay for contrast */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+
+                                    {/* Live System Label */}
+                                    <div className="absolute top-4 right-4">
+                                        <div className="px-3 py-1.5 rounded-full bg-black/40 backdrop-blur-sm border border-white/10">
+                                            <div className="flex items-center gap-2">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-[#6B5CFF] animate-pulse" />
+                                                <span className="text-xs font-medium text-white/90">Live system preview</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -165,7 +198,7 @@ export default function WorkPage() {
                     </p>
                     <Link
                         href="/#contact"
-                        className="inline-block px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-orange-500 hover:text-white transition-all"
+                        className="inline-block px-8 py-4 bg-white text-black rounded-full font-bold text-lg hover:bg-[#6B5CFF] hover:text-white transition-all"
                     >
                         Start Your Project
                     </Link>

@@ -3,10 +3,27 @@
 import { motion } from "framer-motion"
 import { ArrowRight } from 'lucide-react'
 import Link from "next/link"
+import { useState } from "react"
 
 export function Hero() {
+  const [selectedSystem, setSelectedSystem] = useState<string>('voice')
+
+  const systemContent: Record<string, string> = {
+    voice: "Answer calls and qualify leads automatically.",
+    web: "Convert visitors without adding friction.",
+    data: "Turn raw data into decisions.",
+    agents: "Let systems operate without supervision."
+  }
+
+  const systems = [
+    { id: 'voice', label: 'Voice' },
+    { id: 'web', label: 'Web' },
+    { id: 'data', label: 'Data' },
+    { id: 'agents', label: 'Agents' }
+  ]
+
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-[120vh] flex items-center justify-center overflow-hidden pt-20 pb-32">
       {/* Background Gradient Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#2F2A4A]/15 rounded-full blur-[120px] animate-blob mix-blend-screen" />
@@ -33,37 +50,146 @@ export function Hero() {
       />
 
       <div className="container mx-auto px-6 relative z-10 text-center">
+        {/* Main Question */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-12"
+          className="mb-16"
         >
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-[1.1]">
-            AI infrastructure for{" "}
-            <span className="block mt-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] via-[#8B7FFF] to-[#A89FFF]">
-                modern businesses
-              </span>
-            </span>
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white/90 leading-[1.15] max-w-4xl mx-auto">
+            What should your AI handle for you?
           </h1>
         </motion.div>
 
+        {/* Interactive System Options */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="max-w-3xl mx-auto mb-6"
+          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-8"
         >
-          <p className="text-xl md:text-2xl text-white/70 font-medium leading-relaxed">
-            Voice agents, AI-powered experiences, smart websites, and data automation built to scale.
-          </p>
+          {systems.map((system) => (
+            <button
+              key={system.id}
+              onMouseEnter={() => setSelectedSystem(system.id)}
+              onClick={() => setSelectedSystem(system.id)}
+              className={`
+                relative text-xl md:text-2xl font-medium transition-all duration-300 cursor-pointer
+                ${selectedSystem === system.id
+                  ? 'text-[#6B5CFF]'
+                  : 'text-white/40 hover:text-white/70'
+                }
+              `}
+            >
+              {system.label}
+              <div
+                className={`
+                  absolute -bottom-1 left-0 h-[2px] bg-[#6B5CFF] transition-all duration-300
+                  ${selectedSystem === system.id ? 'w-full' : 'w-0'}
+                `}
+              />
+            </button>
+          ))}
         </motion.div>
 
+        {/* Proof Surface */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+          className="max-w-4xl mx-auto mb-8"
+        >
+          <div className="relative w-full h-[400px] md:h-[500px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden">
+            {/* Voice Placeholder */}
+            <motion.div
+              key="voice-proof"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: selectedSystem === 'voice' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'voice' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+            >
+              <div className="text-center space-y-4">
+                <div className="w-16 h-16 mx-auto rounded-full border-2 border-white/20 flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-white/10" />
+                </div>
+                <p className="text-white/40 text-sm font-medium">Voice system preview</p>
+              </div>
+            </motion.div>
+
+            {/* Web Placeholder */}
+            <motion.div
+              key="web-proof"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: selectedSystem === 'web' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'web' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+            >
+              <div className="text-center space-y-4">
+                <div className="w-24 h-16 mx-auto rounded border-2 border-white/20 flex items-center justify-center">
+                  <div className="w-16 h-10 rounded-sm bg-white/10" />
+                </div>
+                <p className="text-white/40 text-sm font-medium">Web system preview</p>
+              </div>
+            </motion.div>
+
+            {/* Data Placeholder */}
+            <motion.div
+              key="data-proof"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: selectedSystem === 'data' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'data' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+            >
+              <div className="text-center space-y-4">
+                <div className="mx-auto space-y-2">
+                  <div className="flex gap-2 justify-center">
+                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
+                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
+                    <div className="w-12 h-12 rounded border border-white/20 bg-white/5" />
+                  </div>
+                </div>
+                <p className="text-white/40 text-sm font-medium">Data system preview</p>
+              </div>
+            </motion.div>
+
+            {/* Agents Placeholder */}
+            <motion.div
+              key="agents-proof"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: selectedSystem === 'agents' ? 1 : 0 }}
+              transition={{ duration: 0.3 }}
+              className={`absolute inset-0 flex items-center justify-center p-8 ${selectedSystem === 'agents' ? 'pointer-events-auto' : 'pointer-events-none'}`}
+            >
+              <div className="text-center space-y-4">
+                <div className="mx-auto flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
+                  <div className="w-8 h-[2px] bg-white/20" />
+                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
+                  <div className="w-8 h-[2px] bg-white/20" />
+                  <div className="w-10 h-10 rounded-full border-2 border-white/20 bg-white/5" />
+                </div>
+                <p className="text-white/40 text-sm font-medium">Agents system preview</p>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+
+        {/* Context Action */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+          className="mb-12"
+        >
+          <p className="text-white/40 text-sm font-medium">→ See this system in action</p>
+        </motion.div>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
           <Link
@@ -110,6 +236,6 @@ export function Hero() {
           }}
         />
       </motion.div>
-    </section>
+    </section >
   )
 }

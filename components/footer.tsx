@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20">
           <div>
             <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              AISIDE<span className="text-orange-500">.</span>
+              AISIDE<span className="text-[#6B5CFF]">.</span>
             </Link>
             <p className="text-white/50 leading-relaxed">
               AI-powered solutions for real estate, e-commerce, and hospitality. Delivered in days, not weeks.
@@ -40,7 +40,7 @@ export function Footer() {
             <p className="text-white/60 mb-4">Ready to start your project?</p>
             <a
               href="mailto:hello@aiside.ee"
-              className="text-xl font-medium hover:text-orange-500 transition-colors"
+              className="text-xl font-medium hover:text-[#6B5CFF] transition-colors"
             >
               hello@aiside.ee
             </a>

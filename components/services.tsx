@@ -6,12 +6,12 @@ import { Box, Code2, Bot, Sparkles } from 'lucide-react'
 
 const services = [
   {
-    icon: <Box className="w-8 h-8 text-orange-400" />,
+    icon: <Box className="w-8 h-8 text-[#6B5CFF]" />,
     title: "3D Visualization & Rendering",
     description: "AI-powered architectural renders and interior design for real estate. Bring properties to life before they're built.",
   },
   {
-    icon: <Code2 className="w-8 h-8 text-orange-500" />,
+    icon: <Code2 className="w-8 h-8 text-[#6B5CFF]" />,
     title: "Custom Web Development",
     description: "Modern, fast websites built with Next.js and AI integration. Designed to convert visitors into customers.",
   },
@@ -21,7 +21,7 @@ const services = [
     description: "Custom AI solutions to streamline your business operations. Save time and reduce costs with intelligent automation.",
   },
   {
-    icon: <Sparkles className="w-8 h-8 text-orange-300" />,
+    icon: <Sparkles className="w-8 h-8 text-[#8B7FFF]" />,
     title: "Content Creation",
     description: "AI-generated visuals, videos, and marketing materials. High-quality content at a fraction of the traditional cost.",
   },
@@ -44,7 +44,7 @@ export function Services() {
             initial={{ opacity: 0, width: 0 }}
             whileInView={{ opacity: 1, width: "100px" }}
             viewport={{ once: true }}
-            className="h-1 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"
+            className="h-1 bg-gradient-to-r from-[#6B5CFF] to-[#8B7FFF] rounded-full"
           />
         </div>
 
@@ -59,13 +59,13 @@ export function Services() {
             >
               <GlassCard className="h-full flex flex-col justify-between group">
                 <div>
-                  <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit group-hover:bg-orange-500/10 transition-colors">
+                  <div className="mb-6 p-4 rounded-2xl bg-white/5 w-fit group-hover:bg-[#6B5CFF]/10 transition-colors">
                     {service.icon}
                   </div>
                   <h3 className="text-2xl font-semibold mb-4">{service.title}</h3>
                   <p className="text-white/60 leading-relaxed">{service.description}</p>
                 </div>
-                <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/40 group-hover:text-orange-400 transition-colors">
+                <div className="mt-8 flex items-center gap-2 text-sm font-medium text-white/40 group-hover:text-[#6B5CFF] transition-colors">
                   Learn more <div className="w-4 h-[1px] bg-current transition-all group-hover:w-8" />
                 </div>
               </GlassCard>

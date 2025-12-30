@@ -9,9 +9,9 @@ export function Hero() {
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Background Gradient Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-orange-600/15 rounded-full blur-[120px] animate-blob mix-blend-screen" />
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#2F2A4A]/15 rounded-full blur-[120px] animate-blob mix-blend-screen" />
         <div className="absolute top-[20%] right-[-10%] w-[40vw] h-[40vw] bg-amber-600/15 rounded-full blur-[120px] animate-blob animation-delay-2000 mix-blend-screen" />
-        <div className="absolute bottom-[-10%] left-[20%] w-[45vw] h-[45vw] bg-orange-500/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[45vw] h-[45vw] bg-[#6B5CFF]/10 rounded-full blur-[120px] animate-blob animation-delay-4000 mix-blend-screen" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -22,8 +22,8 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-8">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6B5CFF] opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#6B5CFF]"></span>
             </span>
             <span className="text-xs font-medium text-white/80 uppercase tracking-wider">
               Available for new projects
@@ -39,7 +39,7 @@ export function Hero() {
         >
           We bring your vision
           <br />
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-orange-400 via-orange-500 to-amber-500">to life with AI</span>
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] via-[#8B7FFF] to-[#A89FFF]">to life with AI</span>
         </motion.h1>
 
         <motion.p
@@ -64,7 +64,7 @@ export function Hero() {
             <span className="relative z-10 flex items-center gap-2">
               View Our Work <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-orange-100 to-white opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#E5E3FF] to-white opacity-0 group-hover:opacity-100 transition-opacity" />
           </Link>
           <button className="px-8 py-4 glass rounded-full font-semibold text-lg text-white hover:bg-white/10 transition-all hover:scale-105 flex items-center gap-2">
             <Calendar className="w-4 h-4" />

@@ -1,46 +1,65 @@
 import Link from "next/link"
 
 export function Footer() {
+  const quickLinks = [
+    { name: "Services", href: "#services" },
+    { name: "Work", href: "/work" },
+    { name: "About", href: "/about" },
+    { name: "Contact", href: "#contact" },
+  ]
+
   return (
-    <footer className="border-t border-white/10 py-12">
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer className="bg-black border-t border-white/10">
+      {/* Quick Links Section */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Brand */}
           <div>
-            <Link href="/" className="text-2xl font-bold tracking-tighter mb-6 block">
-              AISIDE<span className="text-[#6B5CFF]">.</span>
-            </Link>
-            <p className="text-white/50 leading-relaxed mb-4">
-              AI systems for real estate and local businesses.
-            </p>
-            <p className="text-white/40 text-sm">
-              Built in Estonia
+            <h3 className="text-xl font-bold text-white mb-4">AISIDE</h3>
+            <p className="text-white/60 text-sm leading-relaxed">
+              AI implementation studio based in Tallinn. We help businesses automate and scale with cutting-edge AI solutions.
             </p>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Services</h4>
-            <ul className="space-y-2 text-white/60">
-              <li><Link href="#services" className="hover:text-[#6B5CFF] transition-colors">Voice Agents</Link></li>
-              <li><Link href="#services" className="hover:text-[#6B5CFF] transition-colors">AI Property Visualization</Link></li>
-              <li><Link href="#services" className="hover:text-[#6B5CFF] transition-colors">Smart Websites</Link></li>
-              <li><Link href="#services" className="hover:text-[#6B5CFF] transition-colors">Data Automation</Link></li>
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-white/60 hover:text-white text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-semibold mb-4">Get in Touch</h4>
-            <p className="text-white/60 mb-4">Ready to start your project?</p>
+            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-4">Get in Touch</h4>
             <a
               href="mailto:contact@aiside.ee"
-              className="text-xl font-medium hover:text-[#6B5CFF] transition-colors"
+              className="text-2xl font-bold text-white hover:text-[#6B5CFF] transition-colors block"
             >
               contact@aiside.ee
             </a>
           </div>
         </div>
+      </div>
 
-        <div className="pt-8 border-t border-white/10 text-center text-white/40 text-sm">
-          <p>© {new Date().getFullYear()} AISIDE. Built for real estate & local businesses.</p>
+      {/* Bottom Footer */}
+      <div className="border-t border-white/10">
+        <div className="max-w-6xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-white/50 text-sm">
+            © 2025 AISIDE OÜ · Reg: 17402808
+          </p>
+          <p className="text-white/40 text-xs">
+            AI implementation studio based in Tallinn
+          </p>
         </div>
       </div>
     </footer>

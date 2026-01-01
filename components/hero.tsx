@@ -92,10 +92,10 @@ export function Hero() {
 
         {/* Proof Surface Container with Dynamic Sizing */}
         <div
-          className="mx-auto mb-12 relative w-full max-w-4xl"
+          className="mx-auto mb-12 relative w-full max-w-4xl px-2 sm:px-4"
         >
           <div
-            className="relative w-full h-[400px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden"
+            className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden"
           >
             {/* Renders Proof - Before/After Slider */}
             <div

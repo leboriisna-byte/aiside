@@ -17,6 +17,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+      </head>
       <body className={cn("min-h-screen bg-black font-sans antialiased selection:bg-white/20", inter.variable)}>
         {children}
       </body>

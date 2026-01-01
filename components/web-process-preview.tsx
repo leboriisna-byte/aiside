@@ -206,7 +206,7 @@ export function WebProcessPreview() {
 
     return (
         <div className="w-full h-full flex items-center justify-center p-2">
-            <div className="relative w-full max-w-[550px]">
+            <div className="relative w-full max-w-[95vw] md:max-w-[550px]">
 
                 {/* Laptop Frame Image */}
                 <img

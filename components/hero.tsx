@@ -20,7 +20,7 @@ export function Hero() {
   ]
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12 pb-6">
       {/* Background Gradient Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] bg-[#2F2A4A]/15 rounded-full blur-[120px] animate-blob mix-blend-screen" />
@@ -46,15 +46,15 @@ export function Hero() {
         }}
       />
 
-      <div className="container mx-auto px-6 relative z-10 text-center">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10 text-center">
         {/* Main Question */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-8"
+          className="mb-6 md:mb-8 mt-8 md:mt-12"
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-semibold tracking-tight text-white/90 leading-[1.15] max-w-4xl mx-auto">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-semibold tracking-tight text-white/90 leading-[1.1] whitespace-nowrap">
             What can <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#6B5CFF] to-[#8B7FFF]">AISIDE</span> handle for you?
           </h1>
         </motion.div>
@@ -64,7 +64,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-          className="flex flex-wrap items-center justify-center gap-8 md:gap-12 mb-8"
+          className="flex flex-wrap items-center justify-center gap-3 md:gap-6 lg:gap-8 xl:gap-10 mb-3 md:mb-4 xl:mb-6"
         >
           {systems.map((system) => (
             <button
@@ -72,7 +72,7 @@ export function Hero() {
               onMouseEnter={() => setSelectedSystem(system.id)}
               onClick={() => setSelectedSystem(system.id)}
               className={`
-                relative text-xl md:text-2xl font-medium transition-all duration-300 cursor-pointer
+                relative text-base md:text-lg lg:text-xl xl:text-2xl font-medium transition-all duration-300 cursor-pointer
                 ${selectedSystem === system.id
                   ? 'text-[#6B5CFF]'
                   : 'text-white/40 hover:text-white/70'
@@ -92,10 +92,10 @@ export function Hero() {
 
         {/* Proof Surface Container with Dynamic Sizing */}
         <div
-          className="mx-auto mb-12 relative w-full max-w-4xl px-2 sm:px-4"
+          className="mx-auto mb-4 md:mb-6 xl:mb-8 relative w-full max-w-4xl xl:max-w-5xl px-2 sm:px-4"
         >
           <div
-            className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden"
+            className="relative w-full h-[240px] sm:h-[280px] md:h-[320px] lg:h-[360px] xl:h-[420px] 2xl:h-[480px] rounded-2xl border border-white/10 bg-white/[0.02] backdrop-blur-sm overflow-hidden"
           >
             {/* Renders Proof - Before/After Slider */}
             <div
@@ -136,11 +136,11 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <Link
             href="#lead-capture"
-            className="group px-10 py-5 bg-[#6B5CFF] text-white rounded-full font-bold text-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[#7B6CFF] hover:-translate-y-0.5 shadow-[0_0_40px_-10px_rgba(107,92,255,0.6)] hover:shadow-[0_10px_60px_-5px_rgba(107,92,255,0.8)]"
+            className="group px-8 py-3 xl:px-10 xl:py-4 bg-[#6B5CFF] text-white rounded-full font-bold text-base xl:text-lg overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:bg-[#7B6CFF] hover:-translate-y-0.5"
           >
             <span className="flex items-center gap-2">
               Let's Talk
@@ -150,16 +150,13 @@ export function Hero() {
 
           <Link
             href="#proof"
-            className="group px-10 py-5 text-white/70 rounded-full font-semibold text-lg transition-all duration-300 hover:text-white relative overflow-hidden"
+            className="group px-8 py-3 xl:px-10 xl:py-4 text-white rounded-full font-semibold text-base xl:text-lg transition-all duration-300 hover:text-[#6B5CFF] relative overflow-hidden"
           >
             <span className="relative z-10">See What We've Built</span>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#6B5CFF] to-transparent group-hover:w-full transition-all duration-500" />
           </Link>
         </motion.div>
       </div>
-
-      {/* Gradient Fade to Black */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-b from-transparent to-black pointer-events-none z-20" />
 
 
     </section>
